@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #00ff88;
+  --secondary-color: #00ffee;
+  --background-dark: #0B0B1F;
+  --background-light: #1F1F3F;
+  --text-color: #ffffff;
+  --mission-green: #00ff00;
+  --mission-dark: #000000;
+  --mission-glow: rgba(0, 255, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-dark);
+  color: var(--text-color);
+  overflow-x: hidden;
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.98) 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, rgba(0,255,0,0.03) 1px, transparent 1px) 0 0 / 50px 50px,
+    linear-gradient(rgba(0,255,0,0.03) 1px, transparent 1px) 0 0 / 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--mission-green);
+  text-shadow: 0 0 10px var(--mission-glow);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+p, span, div {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--mission-green);
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mission-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mission-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+  box-shadow: 0 0 10px var(--mission-glow);
+}
+
+::selection {
+  background: var(--mission-green);
+  color: var(--mission-dark);
+}
+
+a {
+  color: var(--mission-green);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--mission-green);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+button {
+  font-family: 'Share Tech Mono', monospace;
+  background: transparent;
+  border: 1px solid var(--mission-green);
+  color: var(--mission-green);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--mission-green);
+  color: var(--mission-dark);
+  box-shadow: 0 0 20px var(--mission-glow);
+}
+
+input, textarea {
+  font-family: 'Share Tech Mono', monospace;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--mission-green);
+  color: var(--mission-green);
+  padding: 0.5rem;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 10px var(--mission-glow);
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--mission-green);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 30px var(--mission-glow);
+  transform: translateY(-2px);
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px var(--mission-glow);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--mission-glow), 0 0 30px var(--mission-glow);
+  }
+  100% {
+    text-shadow: 0 0 10px var(--mission-glow);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 0, 0.02) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
