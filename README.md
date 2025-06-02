@@ -1,7 +1,7 @@
 # 🚀 Space Portfolio
 
 <div align="center">
-  <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Space Animation" width="400"/>
+  <img src="https://media.giphy.com/media/3o7TKz2eMXx7dn95FS/giphy.gif" alt="Mission Impossible Animation" width="400"/>
 </div>
 
 > **A futuristic, Mission-Impossible-themed portfolio built with React, TypeScript, Node.js, and MongoDB.**
@@ -19,7 +19,7 @@
 ## 📸 Preview
 
 <div align="center">
-  <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Portfolio Preview" width="600"/>
+  <img src="https://media.giphy.com/media/3o7TKz2eMXx7dn95FS/giphy.gif" alt="Portfolio Preview" width="600"/>
 </div>
 
 ## 🚦 Quick Start
@@ -123,6 +123,10 @@ space-portfolio/
 
 ## 🔐 Mission Impossible Quiz
 
+<div align="center">
+  <img src="https://media.giphy.com/media/3o7TKz2eMXx7dn95FS/giphy.gif" alt="Mission Impossible Theme" width="300"/>
+</div>
+
 To edit a project, you must:
 1. Pass the Mission Impossible quiz (with video/music)
 2. Enter the secret password: `DM171819`
@@ -142,7 +146,7 @@ MIT
 ---
 
 <div align="center">
-  <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Space Animation" width="200"/>
+  <img src="https://media.giphy.com/media/3o7TKz2eMXx7dn95FS/giphy.gif" alt="Mission Impossible Animation" width="200"/>
   <br/>
   <em>"Your mission, should you choose to accept it, is to fork this repo and make it your own!"</em>
 </div>
