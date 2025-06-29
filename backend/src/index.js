@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 // Middleware
 app.use(cors());
@@ -37,7 +37,7 @@ app.use((err, req, res, next) => {
 });
 
 // MongoDB Atlas connection with retry logic
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://darshanmrd17:Y18Z90tJKuvnWUY3@cluster0.3hrumy7.mongodb.net/space-portfolio?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGO_URI;
 
 const connectWithRetry = async () => {
   const maxRetries = 5;
