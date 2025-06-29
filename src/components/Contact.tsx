@@ -10,6 +10,10 @@ const ContactSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+  }
 `;
 
 const ContactContainer = styled(motion.div)`
@@ -20,10 +24,14 @@ const ContactContainer = styled(motion.div)`
   border-radius: 20px;
   padding: 3rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 480px) {
+    padding: 2rem;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   text-align: center;
   margin-bottom: 3rem;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -44,11 +52,11 @@ const InputGroup = styled.div`
 const Input = styled.input`
   width: 100%;
   padding: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   color: #fff;
-  font-size: 1rem;
   transition: all 0.3s ease;
 
   &:focus {
@@ -61,11 +69,11 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   width: 100%;
   padding: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   color: #fff;
-  font-size: 1rem;
   min-height: 150px;
   resize: vertical;
   transition: all 0.3s ease;
@@ -81,7 +89,7 @@ const SubmitButton = styled(motion.button)`
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   border: none;
   padding: 1rem 2rem;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   color: var(--background-dark);
   border-radius: 10px;
   cursor: pointer;
@@ -98,11 +106,15 @@ const SocialLinks = styled.div`
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 `;
 
 const SocialLink = styled(motion.a)`
   color: #fff;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
   opacity: 0.7;
   transition: opacity 0.3s ease;
 
@@ -175,4 +187,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

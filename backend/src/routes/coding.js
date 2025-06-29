@@ -1,6 +1,6 @@
 import express from 'express';
 import { upload } from '../middleware/upload.js';
-import Project from '../models/Project.js';
+import Coding from '../models/Coding.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -12,8 +12,8 @@ const router = express.Router();
 // GET all projects
 router.get('/', async (req, res) => {
   try {
-    const projects = await Project.find();
-    res.json(projects);
+    const codings = await Coding.find();
+    res.json(codings);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -22,9 +22,9 @@ router.get('/', async (req, res) => {
 // GET single project
 router.get('/:id', async (req, res) => {
   try {
-    const project = await Project.findById(req.params.id);
-    if (project) {
-      res.json(project);
+    const coding = await Coding.findById(req.params.id);
+    if (coding) {
+      res.json(coding);
     } else {
       res.status(404).json({ message: 'Project not found' });
     }
@@ -36,20 +36,17 @@ router.get('/:id', async (req, res) => {
 // CREATE project with image upload
 router.post('/', upload.single('image'), async (req, res) => {
   try {
-    const { title, description, technologies, githubUrl, liveUrl } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    const { title, description, imageUrl, Url } = req.body;
     
-    const project = new Project({
+    const coding = new Coding({
       title,
       description,
-      technologies,
-      githubUrl,
-      liveUrl,
-      imageUrl
+      imageUrl,
+      Url
     });
 
-    const savedProject = await project.save();
-    res.status(201).json(savedProject);
+    const savedCoding = await coding.save();
+    res.status(201).json(savedCoding);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -58,30 +55,29 @@ router.post('/', upload.single('image'), async (req, res) => {
 // UPDATE project with image upload
 router.put('/:id', upload.single('image'), async (req, res) => {
   try {
-    const { title, description, technologies, githubUrl, liveUrl } = req.body;
+   const { title, description, imageUrl, Url } = req.body;
     const updateData = {
       title,
       description,
-      technologies,
-      githubUrl,
-      liveUrl
+      imageUrl,
+      Url
     };
 
     if (req.file) {
       updateData.imageUrl = `/uploads/${req.file.filename}`;
     }
 
-    const updatedProject = await Project.findByIdAndUpdate(
+    const updatedCoding = await Coding.findByIdAndUpdate(
       req.params.id,
       updateData,
       { new: true }
     );
 
-    if (!updatedProject) {
-      return res.status(404).json({ message: 'Project not found' });
+    if (!updatedCoding) {
+      return res.status(404).json({ message: 'not found' });
     }
 
-    res.json(updatedProject);
+    res.json(updatedCoding);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -90,11 +86,11 @@ router.put('/:id', upload.single('image'), async (req, res) => {
 // DELETE project
 router.delete('/:id', async (req, res) => {
   try {
-    const project = await Project.findByIdAndDelete(req.params.id);
-    if (!project) {
-      return res.status(404).json({ message: 'Project not found' });
+    const coding = await Coding.findByIdAndDelete(req.params.id);
+    if (!coding) {
+      return res.status(404).json({ message: 'not found' });
     }
-    res.json({ message: 'Project deleted' });
+    res.json({ message: 'deleted' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

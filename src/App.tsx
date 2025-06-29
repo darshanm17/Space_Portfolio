@@ -8,6 +8,7 @@ import ProjectDetails from './components/ProjectDetails';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import './index.css';
+import CodingJourney from './components/CodingJourney';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
               <About />
               <Experience />
               <Projects />
+              <CodingJourney/>
+
               <Contact />
             </>
           } />

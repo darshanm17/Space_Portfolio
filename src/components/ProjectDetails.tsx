@@ -279,6 +279,7 @@ const ProjectDetails = () => {
     const fetchProject = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/projects/${id}`);
+        console.log(response.data);
         setProject(response.data);
         setLoading(false);
       } catch (err) {
@@ -308,6 +309,7 @@ const ProjectDetails = () => {
   const handleQuizSuccess = () => {
     setIsAuthorized(true);
     setShowQuiz(false);
+    console.log(`/project/${id}/edit`)
     navigate(`/project/${id}/edit`);
   };
 
@@ -347,6 +349,7 @@ const ProjectDetails = () => {
       </ProjectDetailsSection>
     );
   }
+  console.log(`/project/${id}/edit`)
 
   return (
     <>
@@ -363,7 +366,7 @@ const ProjectDetails = () => {
           >
             <ProjectTitle>{project.title}</ProjectTitle>
             <ProjectImage>
-              <img src={project.imageUrl} alt={project.title} />
+              <img src={`http://localhost:5000${project.imageUrl}`}  alt={project.title} />
             </ProjectImage>
             <ProjectInfo>
               <Description>{project.description}</Description>

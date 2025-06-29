@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import experienceRoutes from './routes/experience.js';
 import projectRoutes from './routes/project.js';
 import aboutRoutes from './routes/about.js';
+import codingRoutes from './routes/coding.js'
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/api/experiences', experienceRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/about', aboutRoutes);
+app.use('/api/coding', codingRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const projectSchema = new mongoose.Schema({
+const codingSchema = new mongoose.Schema({
   title: {
     type: String,
     // required: true
@@ -9,27 +9,16 @@ const projectSchema = new mongoose.Schema({
     type: String,
     // required: true
   },
-  technologies: [{
-    type: String,
-    // required: true
-  }],
   imageUrl: {
     type: String,
      required: true
   },
-  githubUrl: {
+  Url: {
     type: String,
     // required: true
   },
-  liveUrl: {
-    type: String
-  },
-  order: {
-    type: Number,
-    // required: true
-  }
 }, {
   timestamps: true
 });
 
-export default mongoose.model('Project', projectSchema); 
+export default mongoose.model('Coding', codingSchema); 

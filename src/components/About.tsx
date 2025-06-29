@@ -140,7 +140,7 @@ const ImageContainer = styled(motion.div)`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     filter: grayscale(20%) contrast(120%);
     transition: all 0.3s ease;
   }
