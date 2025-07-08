@@ -376,8 +376,8 @@ useEffect(() => {
     <>
       <Navigation showHamburger={showHamburger} />
       <ProjectDetailsSection>
-        <BackButton onClick={() => navigate('/')}>← Back to Projects</BackButton>
-        <EditButton onClick={handleEditClick}>Edit Project</EditButton>
+        {/* <BackButton onClick={() => navigate('/')}>← Back to Projects</BackButton> */}
+        {/* <EditButton onClick={handleEditClick}>Edit Project</EditButton> */}
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
