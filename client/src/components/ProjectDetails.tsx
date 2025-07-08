@@ -260,6 +260,7 @@ interface Project {
   imageUrl: string;
   githubUrl: string;
   liveUrl?: string;
+  imageUrls: string[];
 }
 
 const ProjectDetails = () => {
@@ -274,22 +275,37 @@ const ProjectDetails = () => {
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        const response = await axios.get(`https://darshans-portfolio-info-backend.onrender.com/api/projects/${id}`);
-        console.log(response.data);
-        setProject(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch project details');
-        setLoading(false);
-      }
-    };
 
-    fetchProject();
-  }, [id]);
+ useEffect(() => {
+  const fetchProject = async () => {
+    try {
+      const response = await axios.get(`https://darshans-portfolio-info-backend.onrender.com/api/projects/${id}`);
+      console.log(response.data);
+      setProject(response.data);
+    } catch (err) {
+      setError('Failed to fetch project details');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProject();
+}, [id]);
+
+useEffect(() => {
+
+  if (project?.imageUrls && project.imageUrls.length > 1) {
+   const interval = setInterval(() => {
+      setCurrentImageIndex((prev) =>
+        (prev + 1) % project.imageUrls.length
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }
+}, [project]);
+
 
   const handleEditClick = () => {
     setShowPassword(true);
@@ -365,9 +381,18 @@ const ProjectDetails = () => {
             transition={{ duration: 0.5 }}
           >
             <ProjectTitle>{project.title}</ProjectTitle>
-            <ProjectImage>
-              <img src={`http://darshans-portfolio-info-backend.onrender.com${project.imageUrl}`}  alt={project.title} />
-            </ProjectImage>
+            <ProjectImage
+  key={project.imageUrls[currentImageIndex]} // helps framer-motion re-render
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: -50 }}
+  transition={{ duration: 0.5 }}
+>
+  <img
+    src={`http://darshans-portfolio-info-backend.onrender.com${project.imageUrls[currentImageIndex]}`}
+    alt={`${project.title} Screenshot ${currentImageIndex + 1}`}
+  />
+</ProjectImage>
             <ProjectInfo>
               <Description>{project.description}</Description>
               <TechStack>
