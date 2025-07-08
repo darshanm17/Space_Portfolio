@@ -214,7 +214,7 @@ const Experience = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch('http://localhost:5000/api/experiences');
+      const response = await fetch('https://darshans-portfolio-info-backend.onrender.com/api/experiences');
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to fetch experiences');

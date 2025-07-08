@@ -166,9 +166,9 @@ const ProjectForm = ({ project, onSuccess, onCancel }: ProjectFormProps) => {
 
     try {
       if (project) {
-        await axios.put(`http://localhost:5000/api/projects/${project._id}`, formData);
+        await axios.put(`http://darshans-portfolio-info-backend.onrender.com/api/projects/${project._id}`, formData);
       } else {
-        await axios.post('http://localhost:5000/api/projects', formData);
+        await axios.post('http://darshans-portfolio-info-backend.onrender.com/api/projects', formData);
       }
       onSuccess();
     } catch (err) {

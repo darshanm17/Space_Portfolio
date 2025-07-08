@@ -92,7 +92,7 @@ const ProjectTitle = styled(motion.h1)`
 `;
 
 const ProjectImage = styled(motion.div)`
-  width: 100%;
+  width: 80%;
   height: 400px;
   overflow: hidden;
   border-radius: 10px;
@@ -103,7 +103,7 @@ const ProjectImage = styled(motion.div)`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
   }
 `;
 
@@ -278,7 +278,7 @@ const ProjectDetails = () => {
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/projects/${id}`);
+        const response = await axios.get(`https://darshans-portfolio-info-backend.onrender.com/api/projects/${id}`);
         console.log(response.data);
         setProject(response.data);
         setLoading(false);
@@ -366,7 +366,7 @@ const ProjectDetails = () => {
           >
             <ProjectTitle>{project.title}</ProjectTitle>
             <ProjectImage>
-              <img src={`http://localhost:5000${project.imageUrl}`}  alt={project.title} />
+              <img src={`http://darshans-portfolio-info-backend.onrender.com${project.imageUrl}`}  alt={project.title} />
             </ProjectImage>
             <ProjectInfo>
               <Description>{project.description}</Description>

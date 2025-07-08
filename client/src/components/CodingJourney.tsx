@@ -133,7 +133,7 @@ const CodingJourney = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/coding');
+        const response = await axios.get('https://darshans-portfolio-info-backend.onrender.com/api/coding');
         setCodings(response.data || []); // Ensure we always have an array
         setError(null);
       } catch (err) {
@@ -197,7 +197,7 @@ console.log(codings);
               
                 <ProjectImage>
                   <img 
-                    src={`http://localhost:5000${coding.imageUrl}`} 
+                    src={`https://darshans-portfolio-info-backend.onrender.com${coding.imageUrl}`} 
                     alt={coding.title}
                     onError={(e) => {
                       e.currentTarget.src = 'https://via.placeholder.com/400x200?text=Project+Image';

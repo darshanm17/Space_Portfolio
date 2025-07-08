@@ -57,7 +57,7 @@ const ProjectImage = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     transition: transform 0.3s ease;
   }
 
@@ -133,7 +133,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/projects');
+        const response = await axios.get('https://darshans-portfolio-info-backend.onrender.com/api/projects');
         setProjects(response.data || []); // Ensure we always have an array
         setError(null);
       } catch (err) {
@@ -194,7 +194,7 @@ const Projects = () => {
               >
                 <ProjectImage>
                   <img 
-                    src={`http://localhost:5000${project.imageUrl}`} 
+                    src={`http://darshans-portfolio-info-backend.onrender.com${project.imageUrl}`} 
                     alt={project.title}
                     onError={(e) => {
                       e.currentTarget.src = 'https://via.placeholder.com/400x200?text=Project+Image';

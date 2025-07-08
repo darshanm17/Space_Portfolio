@@ -12,10 +12,30 @@ const AboutSection = styled.section`
   align-items: center;
   justify-content: center;
 
+  background-image: url('/images/ironman.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7); /* optional overlay for readability */
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
   @media (max-width: 768px) {
     padding: 4rem 1rem;
   }
 `;
+
+
 
 const Container = styled.div`
   max-width: 1200px;
@@ -327,7 +347,7 @@ const About = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/about');
+        const response = await axios.get('https://darshans-portfolio-info-backend.onrender.com/api/about');
         setAboutData(response.data);
         setError(null);
       } catch (err) {
@@ -372,6 +392,7 @@ const About = () => {
   if (!aboutData) {
     return null;
   }
+  {console.log(aboutData.profileImageUrl)}
 
   return (
     <AboutSection id="about">
@@ -466,7 +487,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
         >
           <img
-            src={`http://localhost:5000${aboutData.profileImageUrl}`}
+            src={`https://darshans-portfolio-info-backend.onrender.com${aboutData.profileImageUrl}`}
             alt="Profile"
             onError={(e) => {
               e.currentTarget.src = 'https://via.placeholder.com/400x400?text=Profile+Image';

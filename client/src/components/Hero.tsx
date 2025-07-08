@@ -10,7 +10,7 @@ const HeroSection = styled(motion.section)`
   text-align: center;
   padding: 2rem;
   position: relative;
-
+    background: url('/images/ironman-bg.jpg') center/cover no-repeat;
   @media (max-width: 768px) {
     padding: 1rem;
   }
@@ -135,7 +135,7 @@ const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       >
-        Full-Stack Developer & Space Enthusiast
+        SDET & Developer
       </HeroSubtitle>
       <HeroText
         initial={{ y: 20, opacity: 0 }}
