@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
 
 const ContactSection = styled.section`
@@ -127,10 +128,27 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Add form submission logic here
+      emailjs
+      .sendForm(
+        'service_4qikgvv',     // from EmailJS
+        'template_cp4xi6v',    // from EmailJS
+         e.currentTarget,
+        'lLQrkTKQpKkDdpFQ8'      // from EmailJS dashboard
+      )
+      .then(
+        () => {
+          alert('Message sent successfully!');
+          e.currentTarget.reset();
+        },
+        (error) => {
+          alert('Something went wrong. Try again later.');
+          console.error(error);
+        }
+      );
   };
 
   return (
-    <ContactSection id="contact">
+     <ContactSection id="contact">
       <ContactContainer
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -140,13 +158,13 @@ const Contact = () => {
         <SectionTitle>Contact Me</SectionTitle>
         <Form onSubmit={handleSubmit}>
           <InputGroup>
-            <Input type="text" placeholder="Your Name" required />
+            <Input type="text" name="user_name" placeholder="Your Name" required />
           </InputGroup>
           <InputGroup>
-            <Input type="email" placeholder="Your Email" required />
+            <Input type="email" name="user_email" placeholder="Your Email" required />
           </InputGroup>
           <InputGroup>
-            <TextArea placeholder="Your Message" required />
+            <TextArea name="message" placeholder="Your Message" required />
           </InputGroup>
           <SubmitButton
             type="submit"
@@ -158,7 +176,7 @@ const Contact = () => {
         </Form>
         <SocialLinks>
           <SocialLink
-            href="https://github.com"
+            href="https://github.com/darshanm17"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -3 }}
@@ -174,7 +192,7 @@ const Contact = () => {
             <i className="fab fa-linkedin"></i>
           </SocialLink>
           <SocialLink
-            href="https://twitter.com"
+            href="https://x.com/Dev_404f"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -3 }}

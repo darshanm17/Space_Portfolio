@@ -37,6 +37,20 @@ const HeroTitle = styled(motion.h1)`
   }
 `;
 
+const ScrollDownArrow = styled(motion.div)`
+  font-size: 2.5rem;
+  color: var(--mission-green);
+  cursor: pointer;
+  text-align: center;
+  margin-top: 3rem;
+  animation: glow 2s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+`;
+
 const HeroSubtitle = styled(motion.h2)`
   font-size: 2rem;
   margin: 1rem 0;
@@ -145,16 +159,16 @@ const Hero = () => {
         Welcome to my cosmic corner of the web. I craft digital experiences
         that push the boundaries of what's possible in web development.
       </HeroText>
-      <ExploreButton
-        onClick={scrollToProjects}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Explore My Work
-      </ExploreButton>
+     <ScrollDownArrow
+  onClick={scrollToProjects}
+  initial={{ y: 0, opacity: 0 }}
+  animate={{ y: [0, 15, 0], opacity: 1 }}
+  transition={{ repeat: Infinity, duration: 1.5 }}
+>
+  <i className="fas fa-chevron-down" />
+</ScrollDownArrow>
+
+
     </HeroSection>
   );
 };

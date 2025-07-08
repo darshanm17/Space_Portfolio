@@ -3,38 +3,96 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const Nav = styled(motion.nav)`
+const NavContainer = styled(motion.nav)`
   position: fixed;
   top: 0;
-  right: 0;
-  padding: 2rem;
-  z-index: 10;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
 
   @media (max-width: 768px) {
-    padding: 1rem;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    padding: 0.8rem 1.2rem;
+  }
+`;
+
+const Brand = styled(Link)`
+  color: #00ffee;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  text-decoration: none;
+  text-shadow: 0 0 10px #00ffee;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+`;
+
+const Hamburger = styled.button<{ isOpen: boolean }>`
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00ffee;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 0.3rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  div {
+    width: 20px;
+    height: 2px;
+    background-color: ${({ isOpen }) => (isOpen ? '#00ff88' : '#ffffff')};
+    margin: 3px 0;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+
+  div:nth-of-type(1) {
+    transform: ${({ isOpen }) =>
+      isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none'};
+  }
+
+  div:nth-of-type(2) {
+    opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
+  }
+
+  div:nth-of-type(3) {
+    transform: ${({ isOpen }) =>
+      isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none'};
   }
 `;
 
 const NavList = styled.ul<{ isOpen: boolean }>`
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: ${props => props.isOpen ? '0' : '-100%'};
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    gap: 1rem;
-    width: 200px;
+    position: fixed;
+    top: 60px;
+    right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+    background: rgba(0, 0, 0, 0.95);
+    width: 220px;
+    padding: 2rem 1.5rem;
+    height: 100vh;
+    gap: 1.5rem;
+    z-index: 1050;
+    box-shadow: -5px 0 20px rgba(0, 255, 255, 0.1);
     transition: right 0.3s ease;
   }
 `;
@@ -45,20 +103,19 @@ const NavItem = styled(motion.li)`
 
 const NavLink = styled(Link)`
   color: #ffffff;
+  font-family: 'Share Tech Mono', monospace;
   text-decoration: none;
   font-size: 1.1rem;
-  padding: 0.5rem 1rem;
   position: relative;
-  overflow: hidden;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
-    width: 100%;
     height: 2px;
-    background: linear-gradient(to right, #00ff88, #00ffee);
+    width: 100%;
+    background: linear-gradient(to right, #00ffee, #00ff88);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -70,45 +127,8 @@ const NavLink = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    display: block;
-    padding: 1rem;
-    width: 100%;
-  }
-`;
-
-const HamburgerButton = styled.button<{ isOpen: boolean }>`
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 20;
-
-  @media (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  div {
-    width: 25px;
-    height: 2px;
-    background: #ffffff;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-
-    &:nth-of-type(1) {
-      transform: ${props => props.isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none'};
-    }
-
-    &:nth-of-type(2) {
-      opacity: ${props => props.isOpen ? '0' : '1'};
-    }
-
-    &:nth-of-type(3) {
-      transform: ${props => props.isOpen ? 'rotate(-45deg) translate(7px, -7px)' : 'none'};
-    }
+    font-size: 1rem;
+    padding: 0.3rem 0;
   }
 `;
 
@@ -119,12 +139,9 @@ const navItems = [
   { title: 'Contact', path: '/#contact' },
 ];
 
-interface NavigationProps {
-  showHamburger?: boolean;
-}
-
-const Navigation = ({ showHamburger = false }: NavigationProps) => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showHamburger, setShowHamburger] = useState(window.innerWidth < 768);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -133,80 +150,70 @@ const Navigation = ({ showHamburger = false }: NavigationProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navHeight = 80; // Approximate height of the navigation
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      const navHeight = 80;
+      const offset = element.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
     }
   };
 
   const handleNavClick = (path: string) => {
     setIsOpen(false);
-    
     if (path === '/') {
       navigate('/');
     } else if (path.startsWith('/#')) {
       const sectionId = path.substring(2);
-      
       if (location.pathname !== '/') {
-        // If we're not on the home page, navigate to home first
         navigate('/');
-        // Wait for the page to load before scrolling
-        setTimeout(() => {
-          scrollToSection(sectionId);
-        }, 100);
+        setTimeout(() => scrollToSection(sectionId), 100);
       } else {
-        // If we're already on the home page, just scroll
         scrollToSection(sectionId);
       }
     }
   };
 
-  // Handle hash changes for direct navigation
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        const sectionId = hash.substring(1);
-        scrollToSection(sectionId);
-      }
+    const handleResize = () => {
+      setShowHamburger(window.innerWidth < 768);
+      if (window.innerWidth >= 768) setIsOpen(false);
     };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    // Initial check for hash
-    handleHashChange();
-
-    // Listen for hash changes
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const sectionId = hash.substring(1);
+      scrollToSection(sectionId);
+    }
   }, []);
 
   return (
-    <Nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
+    <NavContainer
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
     >
+      <Brand to="/">404DevFound</Brand>
+
       {showHamburger && (
-        <HamburgerButton onClick={toggleMenu} isOpen={isOpen}>
+        <Hamburger isOpen={isOpen} onClick={toggleMenu}>
           <div />
           <div />
           <div />
-        </HamburgerButton>
+        </Hamburger>
       )}
-      <NavList isOpen={isOpen}>
+
+      <NavList isOpen={showHamburger ? isOpen : true}>
         {navItems.map((item, index) => (
           <NavItem
             key={item.title}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
+            transition={{ delay: 0.2 + index * 0.1 }}
           >
-            <NavLink 
-              to={item.path} 
+            <NavLink
+              to={item.path}
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick(item.path);
@@ -217,8 +224,8 @@ const Navigation = ({ showHamburger = false }: NavigationProps) => {
           </NavItem>
         ))}
       </NavList>
-    </Nav>
+    </NavContainer>
   );
 };
 
-export default Navigation; 
+export default Navigation;

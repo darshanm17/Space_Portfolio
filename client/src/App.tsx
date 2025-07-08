@@ -29,8 +29,8 @@ function App() {
               <Experience />
               <Projects />
               <CodingJourney/>
-              <LeetCodeSection/>
-              <LeetCodeChart/>
+              {/* <LeetCodeSection/>
+              <LeetCodeChart/> */}
               <Contact />
             </>
           } />

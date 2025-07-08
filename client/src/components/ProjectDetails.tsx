@@ -87,7 +87,7 @@ const ProjectTitle = styled(motion.h1)`
   letter-spacing: 2px;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `;
 
@@ -104,6 +104,11 @@ const ProjectImage = styled(motion.div)`
     width: 100%;
     height: 100%;
     object-fit: fill;
+  }
+    @media (max-width: 768px) {
+    width:100%;
+    height:200px;
+    font-size: 2.5rem;
   }
 `;
 

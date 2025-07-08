@@ -32,6 +32,7 @@ const AboutSection = styled.section`
 
   @media (max-width: 768px) {
     padding: 4rem 1rem;
+    font-size:2 rem;
   }
 `;
 
@@ -115,8 +116,13 @@ okay revert things nothing is working
     box-shadow: 0 0 20px var(--mission-glow);
     transform: translateY(-2px);
   }
+    @media (max-width: 768px){
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
 `;
-
 const ImageContainer = styled(motion.div)`
   position: relative;
   width: 100%;
@@ -410,35 +416,6 @@ const About = () => {
           <Description>
             {aboutData.bio}
           </Description>
-          <Stats>
-            <StatItem
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <h3>3+</h3>
-              <p>Years Experience</p>
-            </StatItem>
-            <StatItem
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <h3>50+</h3>
-              <p>Projects Completed</p>
-            </StatItem>
-            <StatItem
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <h3>20+</h3>
-              <p>Happy Clients</p>
-            </StatItem>
-          </Stats>
           <SkillsContainer>
             {aboutData.skills.map((skill, index) => (
               <Skill

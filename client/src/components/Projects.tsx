@@ -9,11 +9,17 @@ const ProjectsSection = styled(motion.section)`
   padding: 6rem 2rem;
   position: relative;
   z-index: 1;
+  @media(max-width:786px){
+    min-height:50%
+  }
 `;
 
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  @media(max-width:786px){
+    min-height:50%
+  }
 `;
 
 const Title = styled(motion.h2)`
@@ -181,7 +187,7 @@ const Projects = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Mission Portfolio
+          Projects
         </Title>
         <ProjectsGrid>
           {projects && projects.length > 0 ? (
