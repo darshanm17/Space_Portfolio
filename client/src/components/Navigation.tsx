@@ -31,7 +31,16 @@ const Brand = styled(Link)`
     font-size: 1.4rem;
   }
 `;
+const SocialLink = styled(motion.a)`
+  color: #fff;
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 
+  &:hover {
+    opacity: 1;
+  }
+`;
 const Hamburger = styled.button<{ isOpen: boolean }>`
   display: none;
   flex-direction: column;
@@ -194,7 +203,9 @@ const Navigation = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <Brand to="/">404DevFound</Brand>
+      <Brand to="/">404DevFound
+       
+      </Brand>
 
       {showHamburger && (
         <Hamburger isOpen={isOpen} onClick={toggleMenu}>
@@ -221,9 +232,11 @@ const Navigation = () => {
             >
               {item.title}
             </NavLink>
+            
           </NavItem>
         ))}
       </NavList>
+      
     </NavContainer>
   );
 };

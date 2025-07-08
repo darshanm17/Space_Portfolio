@@ -199,6 +199,18 @@ const Contact = () => {
           >
             <i className="fab fa-twitter"></i>
           </SocialLink>
+          <SocialLink
+            href="https://buymeacoffee.com/darshan17"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -3 }}
+          >
+            <img
+    src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-1.svg"
+    alt="Buy Me a Coffee"
+    style={{ width: '24px', height: '24px' }}
+  />
+          </SocialLink>
         </SocialLinks>
       </ContactContainer>
     </ContactSection>
