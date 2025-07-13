@@ -16,8 +16,8 @@ An Iron Man–inspired full-stack portfolio website featuring a glowing arc reac
 ## 📂 Project Structure
 
 space-portfolio/
-├── client/ # Vite + React frontend (Iron Man theme)
-│ ├── src/
+-- ├── client/ # Vite + React frontend (Iron Man theme)
+--- │ ├── src/
 │ ├── public/
 │ └── vite.config.ts
 ├── backend/ # Express + MongoDB backend
@@ -134,7 +134,7 @@ Open in browser: http://localhost:5173
         VITE_API_URL=https://space-portfolio-api.onrender.com
 
     Deploy
-📬 Contact
+### 📬 Contact
 
 If you'd like to collaborate, connect, or just say hi:
 
@@ -143,3 +143,20 @@ If you'd like to collaborate, connect, or just say hi:
 🔗 LinkedIn
 
 🌐 Live Portfolio
+
+
+### 💡 Inspiration
+
+    "Sometimes you gotta run before you can walk." – Tony Stark
+
+## This portfolio reflects my journey as a developer — futuristic, persistent, and engineered with passion.
+
+### ⭐ Show Your Support
+
+If you like this project:
+
+-- ⭐ Star this repo
+
+-- 🔁 Share with others
+
+-- ☕ Buy Me a Coffee
