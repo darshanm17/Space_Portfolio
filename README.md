@@ -2,7 +2,9 @@
 
 An Iron Man–inspired full-stack portfolio website featuring a glowing arc reactor theme, modern UI, and real-time project data fetched from a custom backend powered by MongoDB Atlas.
 
-![Iron Man Arc Reactor Themed Portfolio](./preview.png)
+<p align="center">
+  <img src="./preview.png" width="800" />
+</p>
 
 ---
 
@@ -10,25 +12,6 @@ An Iron Man–inspired full-stack portfolio website featuring a glowing arc reac
 
 - 🚀 Frontend (Vercel): [space-portfolio.vercel.app](https://space-portfolio.vercel.app)
 - 🛠️ Backend (Render): [space-portfolio-api.onrender.com](https://space-portfolio-api.onrender.com)
-
----
-
-## 📂 Project Structure
-
-space-portfolio/
--- ├── client/ # Vite + React frontend (Iron Man theme)
---- │ ├── src/
-│ ├── public/
-│ └── vite.config.ts
-├── backend/ # Express + MongoDB backend
-│ ├── models/ # Mongoose models
-│ ├── routes/ # API endpoints
-│ ├── controllers/ # Logic separated from routes
-│ ├── server.js # Main server file
-│ └── .env # Environment variables (Mongo URI, etc.)
-├── README.md
-└── package.json (root-level if monorepo)
-
 
 ---
 
@@ -155,8 +138,8 @@ If you'd like to collaborate, connect, or just say hi:
 
 If you like this project:
 
-- ⭐ Star this repo
+⭐ Star this repo
 
-- 🔁 Share with others
+🔁 Share with others
 
-- ☕ Buy Me a Coffee
+☕ Buy Me a Coffee
