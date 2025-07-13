@@ -125,20 +125,20 @@ const SocialLink = styled(motion.a)`
 `;
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Add form submission logic here
       emailjs
       .sendForm(
         'service_4qikgvv',     // from EmailJS
         'template_cp4xi6v',    // from EmailJS
-        //  e.currentTarget,
+          e.currentTarget,
         'lLQrkTKQpKkDdpFQ8'      // from EmailJS dashboard
       )
       .then(
         () => {
           alert('Message sent successfully!');
-          // e.currentTarget.reset();
+           e.currentTarget.reset();
         },
         (error) => {
           alert('Something went wrong. Try again later.');
