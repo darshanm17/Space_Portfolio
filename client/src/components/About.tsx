@@ -176,54 +176,54 @@ const ImageContainer = styled(motion.div)`
   }
 `;
 
-const Stats = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
+// const Stats = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 1rem;
+//   margin-top: 2rem;
 
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-`;
+//   @media (max-width: 480px) {
+//     grid-template-columns: 1fr;
+//     gap: 0.75rem;
+//   }
+// `;
 
-const StatItem = styled(motion.div)`
-  text-align: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-  border: 1px solid var(--mission-green);
-  transition: all 0.3s ease;
+// const StatItem = styled(motion.div)`
+//   text-align: center;
+//   padding: 1rem;
+//   background: rgba(0, 0, 0, 0.8);
+//   border-radius: 5px;
+//   border: 1px solid var(--mission-green);
+//   transition: all 0.3s ease;
 
-  &:hover {
-    box-shadow: 0 0 20px var(--mission-glow);
-    transform: translateY(-2px);
-  }
+//   &:hover {
+//     box-shadow: 0 0 20px var(--mission-glow);
+//     transform: translateY(-2px);
+//   }
 
-  h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--mission-green);
-    text-shadow: 0 0 10px var(--mission-glow);
-    margin-bottom: 0.5rem;
+//   h3 {
+//     font-family: 'Orbitron', sans-serif;
+//     font-size: 2rem;
+//     color: var(--mission-green);
+//     text-shadow: 0 0 10px var(--mission-glow);
+//     margin-bottom: 0.5rem;
 
-    @media (max-width: 768px) {
-      font-size: 1.75rem;
-    }
-  }
+//     @media (max-width: 768px) {
+//       font-size: 1.75rem;
+//     }
+//   }
 
-  p {
-    font-family: 'Share Tech Mono', monospace;
-    color: var(--mission-green);
-    opacity: 0.7;
-    font-size: 0.9rem;
+//   p {
+//     font-family: 'Share Tech Mono', monospace;
+//     color: var(--mission-green);
+//     opacity: 0.7;
+//     font-size: 0.9rem;
 
-    @media (max-width: 768px) {
-      font-size: 0.85rem;
-    }
-  }
-`;
+//     @media (max-width: 768px) {
+//       font-size: 0.85rem;
+//     }
+//   }
+// `;
 
 const LoadingContainer = styled(motion.div)`
   display: flex;

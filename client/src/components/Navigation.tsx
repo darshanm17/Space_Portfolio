@@ -31,16 +31,16 @@ const Brand = styled(Link)`
     font-size: 1.4rem;
   }
 `;
-const SocialLink = styled(motion.a)`
-  color: #fff;
-  font-size: clamp(1.2rem, 5vw, 1.5rem);
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+// const SocialLink = styled(motion.a)`
+//   color: #fff;
+//   font-size: clamp(1.2rem, 5vw, 1.5rem);
+//   opacity: 0.7;
+//   transition: opacity 0.3s ease;
 
-  &:hover {
-    opacity: 1;
-  }
-`;
+//   &:hover {
+//     opacity: 1;
+//   }
+// `;
 const Hamburger = styled.button<{ isOpen: boolean }>`
   display: none;
   flex-direction: column;

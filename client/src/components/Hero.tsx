@@ -92,36 +92,36 @@ const HeroText = styled(motion.p)`
   }
 `;
 
-const ExploreButton = styled(motion.button)`
-  background: linear-gradient(45deg, #00ff88, #00ffee);
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  color: #0B0B1F;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  font-weight: bold;
-  margin-top: 2rem;
-  text-decoration: none;
-  display: inline-block;
+// const ExploreButton = styled(motion.button)`
+//   background: linear-gradient(45deg, #00ff88, #00ffee);
+//   border: none;
+//   padding: 1rem 2rem;
+//   font-size: 1.1rem;
+//   color: #0B0B1F;
+//   border-radius: 30px;
+//   cursor: pointer;
+//   transition: transform 0.3s ease;
+//   font-weight: bold;
+//   margin-top: 2rem;
+//   text-decoration: none;
+//   display: inline-block;
 
-  @media (max-width: 768px) {
-    padding: 0.875rem 1.75rem;
-    font-size: 1rem;
-    margin-top: 1.5rem;
-  }
+//   @media (max-width: 768px) {
+//     padding: 0.875rem 1.75rem;
+//     font-size: 1rem;
+//     margin-top: 1.5rem;
+//   }
 
-  @media (max-width: 480px) {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-    margin-top: 1rem;
-  }
+//   @media (max-width: 480px) {
+//     padding: 0.75rem 1.5rem;
+//     font-size: 0.95rem;
+//     margin-top: 1rem;
+//   }
 
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
+//   &:hover {
+//     transform: scale(1.05);
+//   }
+// `;
 
 const Hero = () => {
   const scrollToProjects = () => {

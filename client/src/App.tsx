@@ -10,9 +10,9 @@ import Navigation from './components/Navigation';
 import Loader from './components/Loader';
 import './index.css';
 import CodingJourney from './components/CodingJourney';
-import EyeGlowEffect from './components/EyeGlowEffect';
-import LeetCodeSection from './components/LeetCodeSection';
-import LeetCodeChart from './components/LeetCodeChart';
+// import EyeGlowEffect from './components/EyeGlowEffect';
+// import LeetCodeSection from './components/LeetCodeSection';
+// import LeetCodeChart from './components/LeetCodeChart';
 
 function App() {
   return (

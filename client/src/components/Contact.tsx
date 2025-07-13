@@ -132,13 +132,13 @@ const Contact = () => {
       .sendForm(
         'service_4qikgvv',     // from EmailJS
         'template_cp4xi6v',    // from EmailJS
-         e.currentTarget,
+        //  e.currentTarget,
         'lLQrkTKQpKkDdpFQ8'      // from EmailJS dashboard
       )
       .then(
         () => {
           alert('Message sent successfully!');
-          e.currentTarget.reset();
+          // e.currentTarget.reset();
         },
         (error) => {
           alert('Something went wrong. Try again later.');

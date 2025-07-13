@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 import styled from '@emotion/styled';
+import type { Points } from 'three';
 
 const BackgroundWrapper = styled.div`
   position: fixed;
@@ -14,7 +15,7 @@ const BackgroundWrapper = styled.div`
 `;
 
 const StarField = () => {
-  const starsRef = useRef<THREE.Points>(null);
+  const starsRef = useRef<Points>(null);
 
   useFrame(() => {
     if (starsRef.current) {

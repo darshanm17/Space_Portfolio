@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProjectForm from './ProjectForm';
-import MissionQuiz from './MissionQuiz';
-import Navigation from './Navigation';
+// import ProjectForm from './ProjectForm';
+// import MissionQuiz from './MissionQuiz';
+// import Navigation from './Navigation';
 
 const ProjectDetailsSection = styled(motion.section)`
   min-height: 100vh;
@@ -15,57 +15,57 @@ const ProjectDetailsSection = styled(motion.section)`
   background: rgba(0, 0, 0, 0.95);
 `;
 
-const BackButton = styled(motion.button)`
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--mission-green);
-  color: var(--mission-green);
-  padding: 0.8rem 1.5rem;
-  font-family: 'Share Tech Mono', monospace;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 10;
-  transition: all 0.3s ease;
+// const BackButton = styled(motion.button)`
+//   position: fixed;
+//   top: 2rem;
+//   left: 2rem;
+//   background: rgba(0, 0, 0, 0.8);
+//   border: 1px solid var(--mission-green);
+//   color: var(--mission-green);
+//   padding: 0.8rem 1.5rem;
+//   font-family: 'Share Tech Mono', monospace;
+//   cursor: pointer;
+//   border-radius: 5px;
+//   z-index: 10;
+//   transition: all 0.3s ease;
 
-  &:hover {
-    background: rgba(0, 255, 0, 0.1);
-    box-shadow: 0 0 20px var(--mission-glow);
-  }
+//   &:hover {
+//     background: rgba(0, 255, 0, 0.1);
+//     box-shadow: 0 0 20px var(--mission-glow);
+//   }
 
-  @media (max-width: 768px) {
-    top: 1rem;
-    left: 1rem;
-    padding: 0.6rem 1rem;
-  }
-`;
+//   @media (max-width: 768px) {
+//     top: 1rem;
+//     left: 1rem;
+//     padding: 0.6rem 1rem;
+//   }
+// `;
 
-const EditButton = styled(motion.button)`
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--mission-green);
-  color: var(--mission-green);
-  padding: 0.8rem 1.5rem;
-  font-family: 'Share Tech Mono', monospace;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 10;
-  transition: all 0.3s ease;
+// const EditButton = styled(motion.button)`
+//   position: fixed;
+//   top: 2rem;
+//   right: 2rem;
+//   background: rgba(0, 0, 0, 0.8);
+//   border: 1px solid var(--mission-green);
+//   color: var(--mission-green);
+//   padding: 0.8rem 1.5rem;
+//   font-family: 'Share Tech Mono', monospace;
+//   cursor: pointer;
+//   border-radius: 5px;
+//   z-index: 10;
+//   transition: all 0.3s ease;
 
-  &:hover {
-    background: rgba(0, 255, 0, 0.1);
-    box-shadow: 0 0 20px var(--mission-glow);
-  }
+//   &:hover {
+//     background: rgba(0, 255, 0, 0.1);
+//     box-shadow: 0 0 20px var(--mission-glow);
+//   }
 
-  @media (max-width: 768px) {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.6rem 1rem;
-  }
-`;
+//   @media (max-width: 768px) {
+//     top: 1rem;
+//     right: 1rem;
+//     padding: 0.6rem 1rem;
+//   }
+// `;
 
 const Container = styled.div`
   max-width: 1200px;
@@ -270,16 +270,16 @@ interface Project {
 
 const ProjectDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showQuiz, setShowQuiz] = useState(false);
+  // const [showQuiz, setShowQuiz] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState<string | null>(null);
-  const [isAuthorized, setIsAuthorized] = useState(false);
-  const [showHamburger, setShowHamburger] = useState(false);
+  // const [isAuthorized, setIsAuthorized] = useState(false);
+  // const [showHamburger, setShowHamburger] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
 
@@ -312,32 +312,32 @@ useEffect(() => {
 }, [project]);
 
 
-  const handleEditClick = () => {
-    setShowPassword(true);
-  };
+  // const handleEditClick = () => {
+  //   setShowPassword(true);
+  // };
 
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === 'DM171819') {
       setShowPassword(false);
-      setShowQuiz(true);
+      // setShowQuiz(true);
       setPasswordError(null);
     } else {
       setPasswordError('Incorrect password');
     }
   };
 
-  const handleQuizSuccess = () => {
-    setIsAuthorized(true);
-    setShowQuiz(false);
-    console.log(`/project/${id}/edit`)
-    navigate(`/project/${id}/edit`);
-  };
+  // const handleQuizSuccess = () => {
+  //   setIsAuthorized(true);
+  //   setShowQuiz(false);
+  //   console.log(`/project/${id}/edit`)
+  //   navigate(`/project/${id}/edit`);
+  // };
 
-  const handleQuizClose = () => {
-    setShowQuiz(false);
-    setShowPassword(false);
-  };
+  // const handleQuizClose = () => {
+  //   // setShowQuiz(false);
+  //   setShowPassword(false);
+  // };
 
   if (loading) {
     return (
@@ -374,7 +374,7 @@ useEffect(() => {
 
   return (
     <>
-      <Navigation showHamburger={showHamburger} />
+      {/* <Navigation showHamburger={showHamburger} /> */}
       <ProjectDetailsSection>
         {/* <BackButton onClick={() => navigate('/')}>← Back to Projects</BackButton> */}
         {/* <EditButton onClick={handleEditClick}>Edit Project</EditButton> */}
@@ -452,14 +452,14 @@ useEffect(() => {
           </PasswordOverlay>
         )}
       </AnimatePresence>
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showQuiz && (
           <MissionQuiz
             onComplete={handleQuizSuccess}
             onClose={handleQuizClose}
           />
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 };

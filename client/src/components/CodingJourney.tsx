@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// import type { Codings } from '../types';
 
 const ProjectsSection = styled(motion.section)`
   min-height: 100vh;
@@ -98,21 +99,21 @@ const ProjectDescription = styled.p`
   margin-bottom: 1rem;
 `;
 
-const TechStack = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-`;
+// const TechStack = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 0.5rem;
+// `;
 
-const TechItem = styled.span`
-  background: rgba(0, 255, 0, 0.1);
-  padding: 0.3rem 0.8rem;
-  border-radius: 5px;
-  color: var(--mission-green);
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.8rem;
-  border: 1px solid var(--mission-green);
-`;
+// const TechItem = styled.span`
+//   background: rgba(0, 255, 0, 0.1);
+//   padding: 0.3rem 0.8rem;
+//   border-radius: 5px;
+//   color: var(--mission-green);
+//   font-family: 'Share Tech Mono', monospace;
+//   font-size: 0.8rem;
+//   border: 1px solid var(--mission-green);
+// `;
 
 interface Coding {
   _id: string;
@@ -125,8 +126,8 @@ interface Coding {
 }
 
 const CodingJourney = () => {
-  const navigate = useNavigate();
-  const [codings, setCodings] = useState<Project[]>([]);
+  // const navigate = useNavigate();
+  const [codings, setCodings] = useState<Coding[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -189,7 +190,7 @@ console.log(codings);
             codings.map((coding) => (
              
               <ProjectCard
-                key={coding._id}
+                // key={coding._id}
                 onClick={() => window.location.href=`${coding.Url}`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
