@@ -134,3 +134,12 @@ Open in browser: http://localhost:5173
         VITE_API_URL=https://space-portfolio-api.onrender.com
 
     Deploy
+📬 Contact
+
+If you'd like to collaborate, connect, or just say hi:
+
+📧 darshanmrd17@gmail.com
+
+🔗 LinkedIn
+
+🌐 Live Portfolio
