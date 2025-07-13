@@ -155,8 +155,8 @@ If you'd like to collaborate, connect, or just say hi:
 
 If you like this project:
 
--- ⭐ Star this repo
+- ⭐ Star this repo
 
--- 🔁 Share with others
+- 🔁 Share with others
 
--- ☕ Buy Me a Coffee
+- ☕ Buy Me a Coffee
