@@ -1,4 +1,4 @@
-# 🦾 Space Portfolio - Full Stack Developer Portfolio
+#  Space Portfolio - Full Stack Developer Portfolio
 
 An Iron Man–inspired full-stack portfolio website featuring a glowing arc reactor theme, modern UI, and real-time project data fetched from a custom backend powered by MongoDB Atlas.
 
