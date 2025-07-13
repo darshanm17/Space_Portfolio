@@ -10,8 +10,8 @@ An Iron Man–inspired full-stack portfolio website featuring a glowing arc reac
 
 ## 🌐 Live Links
 
-- 🚀 Frontend (Vercel): [space-portfolio.vercel.app](https://space-portfolio.vercel.app)
-- 🛠️ Backend (Render): [space-portfolio-api.onrender.com](https://space-portfolio-api.onrender.com)
+- 🚀 Frontend (Vercel): [space-portfolio.vercel.app](https://space-portfolio-8j5q.vercel.app/)
+- 🛠️ Backend (Render): [space-portfolio-api.onrender.com](https://darshans-portfolio-info-backend.onrender.com)
 
 ---
 
